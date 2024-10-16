@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import { verify } from "hono/jwt";
+import { userRouter } from "./routes/user";
 
 const app = new Hono<{
   Bindings: {
@@ -7,7 +8,7 @@ const app = new Hono<{
   };
 }>();
 
-app.use("/api/v1/user/blog/*", async (c, next) => {
+userRouter.use("/api/v1/user/blog/*", async (c, next) => {
   const authHeader = c.req.header("Authorization") || "";
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     return c.json(

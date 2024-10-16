@@ -62,18 +62,3 @@ userRouter.post("/signin", async (c) => {
     jwt: token,
   });
 });
-
-userRouter.post("/blog", (c) => {
-  //@ts-ignore
-  console.log(c.get("userId"));
-  return c.text("user logged in");
-});
-userRouter.put("/api/v1/user/blog", (c) => {
-  return c.text("Hello Hono!");
-});
-userRouter.get("/api/v1/user/:id", (c) => {
-  return c.text("Hello Hono!");
-});
-userRouter.get("/api/v1/user/bulk", (c) => {
-  return c.text("Hello Hono!");
-});
