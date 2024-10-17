@@ -24,18 +24,24 @@ blogRouter.use("/*", async (c, next) => {
     );
   }
   const token = authHeader.split(" ")[1];
-  const payload = await verify(token, c.env.SECRET_KEY);
-  if (!payload) {
-    return c.json(
-      {
-        error: "Unauthorized user",
-      },
-      403
-    );
+  try {
+    const payload = await verify(token, c.env.SECRET_KEY);
+    if (!payload) {
+      return c.json(
+        {
+          error: "Unauthorized user",
+        },
+        403
+      );
+    }
+    //@ts-ignore
+    c.set("userId", payload.id);
+    await next();
+  } catch (error) {
+    return c.json({
+      error: "Unauthorized user",
+    });
   }
-  //@ts-ignore
-  c.set("userId", payload.id);
-  await next();
 });
 
 blogRouter.post("/", async (c) => {
