@@ -1,6 +1,11 @@
-import React from "react";
+import { SigninInput } from "@kankit543/medium-blog";
+import React, { useState } from "react";
 
 export const Signin: React.FC = () => {
+  const [postInput, setPostInput] = useState<SigninInput>({
+    email: "",
+    password: "",
+  });
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -50,6 +55,12 @@ export const Signin: React.FC = () => {
                   autoComplete="email"
                   required
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                  onChange={(e) => {
+                    setPostInput({
+                      ...postInput,
+                      email: e.target.value,
+                    });
+                  }}
                 />
               </div>
             </div>
@@ -69,6 +80,12 @@ export const Signin: React.FC = () => {
                   autoComplete="current-password"
                   required
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                  onChange={(e) => {
+                    setPostInput({
+                      ...postInput,
+                      password: e.target.value,
+                    });
+                  }}
                 />
               </div>
             </div>
@@ -124,7 +141,7 @@ export const Signin: React.FC = () => {
             <div className="mt-6 grid grid-cols-3 gap-3">
               <div>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/login/"
                   className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 sm:text-base"
                 >
                   <span className="sr-only">Sign in with Facebook</span>
@@ -145,7 +162,7 @@ export const Signin: React.FC = () => {
 
               <div>
                 <a
-                  href="#"
+                  href="https://x.com/i/flow/login"
                   className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 sm:text-base"
                 >
                   <span className="sr-only">Sign in with Twitter</span>
@@ -162,7 +179,7 @@ export const Signin: React.FC = () => {
 
               <div>
                 <a
-                  href="#"
+                  href="https://github.com/login"
                   className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 sm:text-base"
                 >
                   <span className="sr-only">Sign in with GitHub</span>
