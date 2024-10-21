@@ -27,7 +27,6 @@ export const Signup = () => {
       );
       const jwt = response.data;
       localStorage.setItem("token", jwt);
-      console.log("user created");
       navigate("/blogs");
     } catch (error: any) {
       console.log(error.response.data);

@@ -1,11 +1,28 @@
 import { SigninInput } from "@kankit543/medium-blog";
 import React, { useState } from "react";
+import { BACKEND_URL } from "../config";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const Signin: React.FC = () => {
   const [postInput, setPostInput] = useState<SigninInput>({
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
+  async function signinUser() {
+    try {
+      const response = await axios.post(
+        `${BACKEND_URL}/api/v1/user/signin`,
+        postInput
+      );
+      const jwt = response.data;
+      localStorage.setItem("jwt", jwt);
+      navigate("/blogs");
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -118,7 +135,8 @@ export const Signin: React.FC = () => {
 
             <div>
               <button
-                type="submit"
+                onClick={signinUser}
+                type="button"
                 className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:text-base"
               >
                 Sign in
