@@ -26,7 +26,8 @@ export const Signup = () => {
         }
       );
       const jwt = response.data;
-      localStorage.setItem("token", jwt);
+      console.log(jwt);
+      localStorage.setItem("token", `Bearer ` + jwt.jwt);
       navigate("/blogs");
     } catch (error: any) {
       console.log(error.response.data);

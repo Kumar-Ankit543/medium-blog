@@ -17,7 +17,7 @@ export const Signin: React.FC = () => {
         postInput
       );
       const jwt = response.data;
-      localStorage.setItem("jwt", jwt);
+      localStorage.setItem("token", `Bearer ` + jwt.jwt);
       navigate("/blogs");
     } catch (error) {
       console.log(error);
