@@ -1,4 +1,5 @@
 import { BlogCard } from "../components/BlogCard";
+import { Nav } from "../components/Nav";
 import { Navbar } from "../components/NavBar";
 import { Sidebar } from "../components/Sidebar";
 import { useBlogs } from "../hooks/useBlogs";
@@ -12,11 +13,12 @@ export const Blogs = () => {
   return (
     <div>
       <Navbar />
-
+      <Nav />
       <div className="flex">
         <div className="ml-52">
           {blogs.map((blog) => (
             <BlogCard
+              id={blog.id}
               authorName={blog.author.name}
               title={blog.title}
               content={blog.content}

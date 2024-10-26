@@ -1,4 +1,5 @@
 import { BellIcon, PencilIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
@@ -6,7 +7,9 @@ export const Navbar = () => {
       <header className="border-b border-grey-200">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <h1 className="text-xl font-bold">Medium</h1>
+            <Link to={"/blogs"}>
+              <h1 className="text-xl font-bold cursor-pointer">Medium</h1>
+            </Link>
             <input
               type="search"
               placeholder="Search"
@@ -26,26 +29,6 @@ export const Navbar = () => {
           </div>
         </div>
       </header>
-      <div></div>
-      <nav className="border-b border-gray-200 ml-52">
-        <div className="container mx-auto px-4 py-3 flex space-x-6">
-          <a href="#" className="text-gray-900 font-medium">
-            For you
-          </a>
-          <a href="#" className="text-gray-500 hover:text-gray-900">
-            Following
-          </a>
-          <a href="#" className="text-gray-500 hover:text-gray-900">
-            React
-          </a>
-          <a href="#" className="text-gray-500 hover:text-gray-900">
-            JavaScript
-          </a>
-          <a href="#" className="text-gray-500 hover:text-gray-900">
-            Programming
-          </a>
-        </div>
-      </nav>
     </div>
   );
 };
