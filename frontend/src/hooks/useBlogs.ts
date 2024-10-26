@@ -21,7 +21,7 @@ export const useBlogs = () => {
         Authorization: localStorage.getItem("token"),
       },
     });
-    setBlogs(response.data);
+    setBlogs(response.data.blogs);
     setLoading(false);
   }
 
