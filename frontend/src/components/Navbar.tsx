@@ -28,7 +28,7 @@ export const Navbar = () => {
             <button className="text-gray-600 hover:text-gray-900">
               <BellIcon className="h-6 w-6" />
             </button>
-            <button className="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">
+            <button className="bg-indigo-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">
               K
             </button>
           </div>
