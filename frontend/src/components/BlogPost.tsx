@@ -7,7 +7,7 @@ import {
   MoreHorizontal,
 } from "lucide-react";
 import { Blog } from "../hooks/useBlog";
-import { Navbar } from "./NavBar";
+import { Navbar } from "./Navbar";
 
 const getInitials = (name: string) => {
   const names = name.split(" ");

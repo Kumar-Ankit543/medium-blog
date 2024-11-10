@@ -1,6 +1,6 @@
 import { BlogCard } from "../components/BlogCard";
 import { Nav } from "../components/Nav";
-import { Navbar } from "../components/NavBar";
+import { Navbar } from "../components/Navbar";
 import { Sidebar } from "../components/Sidebar";
 import { useBlogs } from "../hooks/useBlogs";
 

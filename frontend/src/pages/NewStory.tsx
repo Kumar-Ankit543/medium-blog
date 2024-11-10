@@ -1,4 +1,4 @@
-import { CreateBlog } from "../components/createBlog";
+import { CreateBlog } from "../components/CreateBlog";
 
 export const NewStory = () => {
   return (
